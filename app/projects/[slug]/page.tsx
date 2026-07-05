@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Footer from "../../../components/Footer";
 import { ArrowIcon, ArrowLeftIcon, GitHubIcon } from "../../../components/icons";
 import { getProject, profile, projects } from "../../../lib/data";
 
@@ -44,6 +45,7 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
+    <>
     <section className="section detail-page">
       <div className="container detail-main">
         <Link href="/projects" className="detail-back">
@@ -55,7 +57,6 @@ export default async function ProjectPage({
           {project.period}
         </p>
         <h1 className="h-display detail-title">{project.title}</h1>
-        <p className="lead detail-tagline">{project.tagline}</p>
 
         <div className="detail-stack">
           {project.stack.map((s) => (
@@ -82,7 +83,7 @@ export default async function ProjectPage({
 
         <div className="detail-body">
           <section className="detail-section">
-            <span className="detail-label">The challenge</span>
+            <span className="detail-label">Problem</span>
             <p>{project.problem}</p>
           </section>
 
@@ -110,20 +111,32 @@ export default async function ProjectPage({
       </div>
 
       <style>{`
-        .detail-main { max-width: 760px; }
+        .detail-page {
+          background: var(--paper);
+        }
+        .detail-main {
+          max-width: 780px;
+          padding-top: 16px;
+        }
         .detail-back {
           display: inline-flex;
           align-items: center;
           gap: 8px;
           font-size: 0.92rem;
-          color: var(--muted-strong);
+          color: var(--fg);
+          padding: 8px 10px;
+          border: 1px solid var(--fg);
+          background: var(--accent-soft);
+          box-shadow: 4px 4px 0 rgba(16, 16, 16, 0.14);
           transition: color 0.2s var(--ease);
         }
         .detail-back:hover { color: var(--fg); }
         .detail-back svg { width: 17px; height: 17px; }
 
-        .detail-title { margin-top: 1.25rem; }
-        .detail-tagline { margin-top: 1rem; max-width: 46ch; }
+        .detail-title {
+          margin-top: 1.25rem;
+          text-shadow: 4px 4px 0 var(--accent);
+        }
 
         .detail-stack {
           display: flex;
@@ -142,15 +155,23 @@ export default async function ProjectPage({
           display: grid;
           gap: clamp(2rem, 4vw, 3rem);
           margin-top: clamp(2.5rem, 5vw, 3.5rem);
-          padding-top: clamp(2.5rem, 5vw, 3.5rem);
-          border-top: 1px solid var(--line);
+          padding: clamp(1.5rem, 4vw, 2.4rem);
+          border: 2px solid var(--fg);
+          background: var(--paper);
+          box-shadow: var(--shadow);
+          transform: rotate(-0.35deg);
         }
         .detail-label {
-          font-family: var(--font-geist-mono), ui-monospace, monospace;
+          font-family: "Times New Roman", Times, serif;
           font-size: 0.68rem;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: var(--muted);
+          color: var(--fg);
+          font-weight: 800;
+          background: var(--accent);
+          border: 1px solid var(--fg);
+          padding: 4px 8px;
+          width: fit-content;
         }
         .detail-section { display: grid; gap: 12px; }
         .detail-section > p {
@@ -173,16 +194,24 @@ export default async function ProjectPage({
           top: 11px;
           width: 6px;
           height: 6px;
-          border-radius: 50%;
+          border-radius: 0;
           border: 1.5px solid var(--fg);
+          background: var(--accent);
+          transform: rotate(45deg);
         }
 
         .detail-foot-nav {
           margin-top: clamp(2.5rem, 5vw, 3.5rem);
           padding-top: clamp(2rem, 4vw, 2.5rem);
-          border-top: 1px solid var(--line);
+          border-top: 2px solid var(--fg);
+        }
+
+        @media (max-width: 640px) {
+          .detail-body { transform: none; }
         }
       `}</style>
     </section>
+    <Footer />
+    </>
   );
 }

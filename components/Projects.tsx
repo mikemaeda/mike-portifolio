@@ -1,119 +1,60 @@
-import Link from "next/link";
 import { projects } from "../lib/data";
+import ProjectArchive from "./ProjectArchive";
 import Reveal from "./Reveal";
-import { ArrowIcon, GitHubIcon } from "./icons";
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="section"
-      style={{ background: "var(--bg-alt)", borderBlock: "1px solid var(--line)" }}
-    >
+    <section id="projects" className="section projects-section">
       <div className="container">
         <Reveal>
-          <p className="kicker">Selected Work</p>
-          <h2 className="h-section" style={{ marginTop: "1.25rem", maxWidth: "18ch" }}>
-            Projects
-          </h2>
+          <h2 className="h-section projects-title">Projects</h2>
         </Reveal>
 
-        <div className="proj-grid">
-          {projects.map((p, i) => (
-            <Reveal
-              key={p.title}
-              delay={(i % 2) * 80}
-              className={`card proj-card ${p.featured ? "is-featured" : ""}`}
-            >
-              <div className="proj-head">
-                <div>
-                  <h3 className="proj-title">{p.title}</h3>
-                  <p className="proj-tagline">{p.tagline}</p>
-                </div>
-                <span className="proj-period">{p.period}</span>
-              </div>
-
-              <p className="proj-summary">{p.summary}</p>
-
-              <div className="proj-stack">
-                {p.stack.map((s) => (
-                  <span key={s} className="chip">
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              <div className="proj-links">
-                <Link
-                  href={`/projects/${p.slug}`}
-                  className="btn btn-primary"
-                  style={{ minHeight: 42, padding: "0 18px", fontSize: "0.86rem" }}
-                >
-                  View details
-                  <ArrowIcon />
-                </Link>
-                {p.links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-ghost"
-                    style={{ minHeight: 42, padding: "0 18px", fontSize: "0.86rem" }}
-                  >
-                    {l.label === "GitHub" ? <GitHubIcon /> : <ArrowIcon />}
-                    {l.label}
-                  </a>
-                ))}
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={90}>
+          <ProjectArchive projects={projects} />
+        </Reveal>
       </div>
 
       <style>{`
-        .proj-grid {
-          display: grid;
-          gap: 20px;
-          margin-top: clamp(2.5rem, 5vw, 3.5rem);
+        .projects-section {
+          position: relative;
+          overflow: hidden;
+          background:
+            radial-gradient(circle at 14% 18%, rgba(255, 248, 232, 0.48), transparent 18rem),
+            radial-gradient(circle at 84% 78%, rgba(111, 67, 29, 0.18), transparent 18rem),
+            var(--paper-deep);
+          border-block: 2px solid var(--fg);
         }
-        .proj-card {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          padding: clamp(1.6rem, 3vw, 2.4rem);
-        }
-        .proj-card:hover {
-          transform: translateY(-4px);
-          border-color: var(--line-strong);
-          box-shadow: var(--shadow-lift);
-        }
-        .proj-head {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 16px;
-        }
-        .proj-title { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; }
-        .proj-tagline { margin-top: 4px; color: var(--muted-strong); font-size: 0.98rem; }
-        .proj-period {
-          font-family: var(--font-geist-mono), monospace;
-          font-size: 0.74rem;
-          color: var(--muted);
-          white-space: nowrap;
-          padding-top: 4px;
-        }
-        .proj-summary {
-          font-size: 0.98rem;
-          line-height: 1.65;
-          color: var(--muted-strong);
-        }
-        .proj-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-        .proj-links { display: flex; flex-wrap: wrap; gap: 10px; }
 
-        @media (min-width: 880px) {
-          .proj-grid { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+        .projects-section::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            repeating-linear-gradient(90deg, rgba(16, 16, 16, 0.025) 0 1px, transparent 1px 34px),
+            repeating-linear-gradient(0deg, rgba(16, 16, 16, 0.025) 0 1px, transparent 1px 31px);
+          pointer-events: none;
         }
+
+        .projects-section > .container {
+          position: relative;
+          z-index: 1;
+        }
+
+        .projects-title {
+          margin-top: 1.25rem;
+          max-width: 18ch;
+          font-family: "Brush Script MT", "Snell Roundhand", "Apple Chancery", cursive;
+          font-size: clamp(3.6rem, 8.6vw, 6.6rem);
+          font-weight: 500;
+          line-height: 0.92;
+          letter-spacing: 0;
+          text-shadow:
+            4px 4px 0 var(--accent),
+            0 3px 0 rgba(16, 16, 16, 0.12);
+          transform: rotate(-0.3deg);
+        }
+
       `}</style>
     </section>
   );

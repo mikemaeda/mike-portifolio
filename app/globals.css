@@ -1,45 +1,31 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Design tokens — pure black & white, Apple-style minimal
+   Design tokens — vintage editorial postcard system
    ============================================================ */
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --bg-alt: #fafafa;
-  --fg: #0a0a0a;
-  --muted: rgba(10, 10, 10, 0.58);
-  --muted-strong: rgba(10, 10, 10, 0.72);
-  --line: rgba(10, 10, 10, 0.1);
-  --line-strong: rgba(10, 10, 10, 0.22);
-  --card: #ffffff;
-  --nav-bg: rgba(255, 255, 255, 0.78);
-  --nav-mobile-bg: rgba(255, 255, 255, 0.96);
-  --shadow: 0 1px 2px rgba(10, 10, 10, 0.04), 0 12px 32px rgba(10, 10, 10, 0.06);
-  --shadow-lift: 0 2px 4px rgba(10, 10, 10, 0.06), 0 24px 56px rgba(10, 10, 10, 0.1);
+  --bg: #f4c316;
+  --bg-alt: #e0b100;
+  --paper: #fff8e8;
+  --paper-deep: #f2d55d;
+  --fg: #101010;
+  --muted: rgba(16, 16, 16, 0.58);
+  --muted-strong: rgba(16, 16, 16, 0.76);
+  --line: rgba(16, 16, 16, 0.2);
+  --line-strong: #101010;
+  --accent: #f4c316;
+  --accent-soft: #ffe58f;
+  --card: #fff8e8;
+  --nav-bg: #0d0d0d;
+  --nav-mobile-bg: #0d0d0d;
+  --shadow: 8px 8px 0 rgba(16, 16, 16, 0.16);
+  --shadow-lift: 12px 12px 0 rgba(16, 16, 16, 0.22);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --maxw: 1120px;
+  --maxw: 940px;
 }
 
-/* Dark theme — applied via [data-theme="dark"] on <html>, set before paint
-   by the no-flash script in app/layout.tsx. */
-[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #0a0a0a;
-  --bg-alt: #121212;
-  --fg: #f5f5f5;
-  --muted: rgba(245, 245, 245, 0.56);
-  --muted-strong: rgba(245, 245, 245, 0.74);
-  --line: rgba(245, 245, 245, 0.12);
-  --line-strong: rgba(245, 245, 245, 0.26);
-  --card: #141414;
-  --nav-bg: rgba(10, 10, 10, 0.72);
-  --nav-mobile-bg: rgba(10, 10, 10, 0.96);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.5), 0 24px 56px rgba(0, 0, 0, 0.6);
-}
-
-/* Smooth the transition when the user flips the theme. */
+/* Smooth background and color changes across the postcard system. */
 body,
 .card,
 .chip,
@@ -52,13 +38,19 @@ header {
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
   --color-fg: var(--fg);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Times New Roman", Times, serif;
+  --font-mono: "Times New Roman", Times, serif;
 }
 
 * {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+body * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M10 3h12v5c0 3-2 5-4.5 8C20 19 22 21 22 24v5H10v-5c0-3 2-5 4.5-8C12 13 10 11 10 8V3Z' fill='%23fff8e8' stroke='%23101010' stroke-width='2'/%3E%3Cpath d='M12 6h8M12 26h8M13 9h6c-.6 2-2 3.5-3 4.8C15 12.5 13.6 11 13 9Zm0 16c.4-2 1.8-3.4 3-4.8 1.2 1.4 2.6 2.8 3 4.8h-6Z' fill='%23f4c316'/%3E%3Cpath d='M15 15h2v3h-2z' fill='%23101010'/%3E%3C/svg%3E") 16 16, wait;
 }
 
 html {
@@ -67,15 +59,28 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background:
+    linear-gradient(rgba(16, 16, 16, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 16, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at 18% 12%, rgba(255, 248, 232, 0.24), transparent 22rem),
+    var(--bg);
+  background-size: 100% 31px, 31px 100%, auto, auto;
   color: var(--fg);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.011em;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 0;
+}
+
+main {
+  max-width: 1080px;
+  margin-inline: auto;
+  background: rgba(255, 248, 232, 0.9);
+  border-inline: 3px solid var(--fg);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.34), 0 24px 80px rgba(56, 37, 10, 0.18);
 }
 
 ::selection {
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--accent);
+  color: var(--fg);
 }
 
 a {
@@ -107,7 +112,8 @@ a {
 }
 
 .section {
-  padding-block: clamp(4.5rem, 10vw, 8rem);
+  padding-block: clamp(4rem, 9vw, 7rem);
+  border-top: 1px solid var(--line);
 }
 
 /* On standalone pages, the first section must clear the fixed nav (68px). */
@@ -119,33 +125,40 @@ main > section.section:first-child {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.76rem;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--fg);
+  background: var(--line-strong);
+  color: var(--paper);
+  padding: 5px 10px;
+  box-shadow: 8px 0 0 var(--accent);
 }
 
 .kicker::before {
   content: "";
-  width: 22px;
-  height: 1px;
-  background: var(--line-strong);
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border: 1px solid var(--paper);
 }
 
 .h-display {
   font-size: clamp(2.4rem, 6vw, 4.25rem);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1.02;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .h-section {
   font-size: clamp(2rem, 4.4vw, 3.1rem);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
 }
 
 .lead {
@@ -164,11 +177,12 @@ main > section.section:first-child {
   gap: 9px;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  border: 1px solid transparent;
+  border: 1px solid var(--fg);
+  box-shadow: 4px 4px 0 rgba(16, 16, 16, 0.18);
   transition: transform 0.25s var(--ease), background 0.25s var(--ease),
     border-color 0.25s var(--ease), color 0.25s var(--ease), opacity 0.25s var(--ease);
   cursor: pointer;
@@ -180,26 +194,29 @@ main > section.section:first-child {
 }
 
 .btn-primary {
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--accent);
+  color: var(--fg);
+  border-color: var(--fg);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  opacity: 0.88;
+  transform: translate(-2px, -2px);
+  opacity: 1;
+  box-shadow: 7px 7px 0 rgba(16, 16, 16, 0.22);
 }
 
 .btn-ghost {
-  background: transparent;
+  background: var(--paper);
   color: var(--fg);
-  border-color: var(--line-strong);
+  border-color: var(--fg);
 }
 
 .btn-ghost:hover {
-  transform: translateY(-2px);
+  transform: translate(-2px, -2px);
   border-color: var(--fg);
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--accent-soft);
+  color: var(--fg);
+  box-shadow: 7px 7px 0 rgba(16, 16, 16, 0.22);
 }
 
 /* ============================================================
@@ -207,7 +224,7 @@ main > section.section:first-child {
    ============================================================ */
 .card {
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 0;
   background: var(--card);
   box-shadow: var(--shadow);
   transition: transform 0.35s var(--ease), border-color 0.35s var(--ease),
@@ -218,13 +235,14 @@ main > section.section:first-child {
   display: inline-flex;
   align-items: center;
   padding: 6px 13px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--bg-alt);
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  border-radius: 0;
+  border: 1px solid rgba(16, 16, 16, 0.34);
+  background: rgba(255, 248, 232, 0.72);
+  font-family: "Times New Roman", Times, serif;
   font-size: 0.74rem;
   letter-spacing: -0.01em;
-  color: var(--muted-strong);
+  color: var(--fg);
+  text-transform: uppercase;
 }
 
 /* ============================================================
@@ -260,4 +278,5 @@ main > section.section:first-child {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
+
 }

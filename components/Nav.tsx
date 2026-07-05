@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, profile } from "../lib/data";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,15 +27,15 @@ export default function Nav() {
 
   return (
     <header
+      className={`masthead ${open ? "is-open" : ""}`}
       style={{
         position: "fixed",
         insetInline: 0,
         top: 0,
         zIndex: 50,
-        borderBottom: `1px solid ${scrolled ? "var(--line)" : "transparent"}`,
-        background: scrolled ? "var(--nav-bg)" : "transparent",
-        backdropFilter: scrolled ? "saturate(180%) blur(16px)" : "none",
-        transition: "background 0.3s var(--ease), border-color 0.3s var(--ease)",
+        borderBottom: `3px solid ${scrolled ? "var(--accent)" : "var(--fg)"}`,
+        background: "var(--paper)",
+        color: "var(--fg)",
       }}
     >
       <div
@@ -50,7 +49,15 @@ export default function Nav() {
       >
         <Link
           href="/"
-          style={{ fontWeight: 600, letterSpacing: "-0.02em", fontSize: "1.02rem" }}
+          style={{
+            fontWeight: 900,
+            letterSpacing: "0.02em",
+            fontSize: "clamp(1.05rem, 2vw, 1.32rem)",
+            textTransform: "uppercase",
+            fontFamily: "Georgia, 'Times New Roman', serif",
+            fontVariant: "small-caps",
+            textShadow: "1px 1px 0 rgba(244, 195, 22, 0.45)",
+          }}
         >
           Mike Maeda
         </Link>
@@ -74,17 +81,14 @@ export default function Nav() {
             href={profile.links.resume}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-primary"
-            style={{ minHeight: 40, padding: "0 18px", fontSize: "0.85rem" }}
+            className="nav-resume"
           >
             Resume
           </a>
-          <ThemeToggle />
         </nav>
 
         {/* Mobile controls */}
         <div className="nav-mobile-controls">
-          <ThemeToggle />
           <button
             type="button"
             className="nav-toggle"
@@ -122,18 +126,114 @@ export default function Nav() {
       </div>
 
       <style>{`
+        .masthead {
+          transform: translateY(-58px);
+          box-shadow: 0 12px 0 rgba(16, 16, 16, 0.12);
+          transition: transform 0.34s var(--ease), background 0.3s var(--ease),
+            border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+
+        .masthead::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -20px;
+          transform: translateX(-50%);
+          width: 58px;
+          height: 16px;
+          border: 2px solid var(--fg);
+          border-top: 0;
+          background: var(--accent);
+          color: var(--fg);
+          opacity: 0.86;
+        }
+
+        .masthead::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -12px;
+          z-index: 1;
+          width: 10px;
+          height: 10px;
+          border-right: 3px solid var(--fg);
+          border-bottom: 3px solid var(--fg);
+          transform: translateX(-50%) rotate(45deg);
+          animation: navHintBounce 1.8s ease-in-out infinite;
+        }
+
+        @keyframes navHintBounce {
+          0%, 100% {
+            translate: 0 -1px;
+          }
+          50% {
+            translate: 0 3px;
+          }
+        }
+
+        .masthead:hover,
+        .masthead:focus-within,
+        .masthead.is-open {
+          transform: translateY(0);
+          box-shadow: 0 14px 0 rgba(16, 16, 16, 0.18);
+        }
+
         .nav-desktop {
           display: none;
           align-items: center;
-          gap: 30px;
+          gap: 24px;
         }
         .nav-link {
-          font-size: 0.92rem;
-          color: var(--muted-strong);
+          position: relative;
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 0.8rem;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-variant: small-caps;
+          color: rgba(16, 16, 16, 0.78);
           transition: color 0.2s var(--ease);
         }
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -7px;
+          height: 2px;
+          background: var(--accent);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.22s var(--ease);
+        }
+        .nav-link:hover::after,
+        .nav-link.is-active::after {
+          transform: scaleX(1);
+        }
         .nav-link:hover { color: var(--fg); }
-        .nav-link.is-active { color: var(--fg); font-weight: 500; }
+        .nav-link.is-active { color: var(--fg); font-weight: 900; }
+        .nav-resume {
+          display: inline-flex;
+          min-height: 38px;
+          align-items: center;
+          justify-content: center;
+          padding: 0 16px;
+          border: 1px solid var(--fg);
+          background: var(--accent);
+          color: var(--fg);
+          box-shadow: 4px 4px 0 rgba(16, 16, 16, 0.16);
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 0.78rem;
+          font-weight: 900;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          font-variant: small-caps;
+          transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+        }
+        .nav-resume:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0 rgba(16, 16, 16, 0.22);
+        }
 
         .nav-mobile-controls {
           display: flex;
@@ -149,7 +249,7 @@ export default function Nav() {
           height: 40px;
           align-items: center;
           background: transparent;
-          border: none;
+          border: 1px solid var(--fg);
           cursor: pointer;
         }
         .nav-toggle span {
@@ -167,8 +267,7 @@ export default function Nav() {
           padding: 0 24px;
           max-height: 0;
           overflow: hidden;
-          background: var(--nav-mobile-bg);
-          backdrop-filter: saturate(180%) blur(16px);
+          background: var(--paper);
           border-bottom: 1px solid transparent;
           transition: max-height 0.35s var(--ease), border-color 0.35s var(--ease), padding 0.35s var(--ease);
         }
@@ -180,8 +279,12 @@ export default function Nav() {
         .nav-mobile a {
           padding: 13px 0;
           font-size: 1.05rem;
-          font-weight: 500;
-          border-bottom: 1px solid var(--line);
+          font-family: Georgia, "Times New Roman", serif;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--fg);
+          border-bottom: 1px solid rgba(16, 16, 16, 0.18);
         }
         .nav-mobile a:last-child { border-bottom: none; }
 
@@ -189,6 +292,29 @@ export default function Nav() {
           .nav-desktop { display: flex; }
           .nav-mobile-controls { display: none; }
           .nav-mobile { display: none; }
+        }
+
+        @media (max-width: 767px) {
+          .masthead {
+            transform: translateY(-50px);
+          }
+          .masthead::after {
+            bottom: -22px;
+          }
+          .masthead::before {
+            bottom: -14px;
+          }
+          .masthead:hover,
+          .masthead:focus-within,
+          .masthead.is-open {
+            transform: translateY(0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .masthead::before {
+            animation: none;
+          }
         }
       `}</style>
     </header>

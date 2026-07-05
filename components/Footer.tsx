@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ borderTop: "1px solid var(--line)", padding: "32px 0" }}>
+    <footer style={{ borderTop: "3px solid var(--fg)", padding: "32px 0", background: "var(--nav-bg)", color: "var(--paper)" }}>
       <div
         className="container"
         style={{
@@ -16,7 +16,7 @@ export default function Footer() {
           justifyContent: "space-between",
         }}
       >
-        <p style={{ fontSize: "0.86rem", color: "var(--muted)" }}>
+        <p style={{ fontSize: "0.86rem", color: "rgba(255, 248, 232, 0.72)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
           © {year} {profile.name}. Built with Next.js.
         </p>
 
@@ -38,9 +38,10 @@ export default function Footer() {
                 justifyContent: "center",
                 width: 40,
                 height: 40,
-                borderRadius: 10,
-                border: "1px solid var(--line)",
-                color: "var(--muted-strong)",
+                borderRadius: 0,
+                border: "1px solid rgba(255, 248, 232, 0.42)",
+                color: "var(--paper)",
+                background: "rgba(255, 248, 232, 0.04)",
               }}
             >
               <Icon style={{ width: 18, height: 18 }} />
