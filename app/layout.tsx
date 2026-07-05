@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "full-stack developer",
   ],
   authors: [{ name: "Mike Maeda" }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "Mike Maeda — Computer Science & Data Analytics",
     description:
