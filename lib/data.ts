@@ -23,10 +23,10 @@ export const profile = {
 export const hero = {
   headline: "Hi, I'm Mike Maeda.",
   subtitle:
-    "Undergraduate pursuing a Bachelor's degree in Computer Science & Data Analytics at Alfred University.",
+    "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
   // One short, confident sentence — no stats, no storytelling.
   intro:
-    "I'm a Computer Science & Data Analytics major at Alfred University, focused on backend engineering and applied AI. I build full-stack web applications, most in Python with SQL-backed data layers and REST APIs. I'm drawn to backend and data-heavy work, designing pipelines and systems that hold up under real use, and I care as much about evaluating and understanding failure as I do about shipping something that works.",
+    "I'm a Computer Science & Data Analytics double major at Alfred University, focused on backend engineering and applied AI. I build full-stack web applications, most in Python with SQL-backed data layers and REST APIs. I'm drawn to backend and data-heavy work, designing pipelines and systems that hold up under real use, and I care as much about evaluating and understanding failure as I do about shipping something that works.",
 };
 
 export type Experience = {
