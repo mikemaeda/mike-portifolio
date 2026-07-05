@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Project } from "../lib/data";
 import ProjectScroll from "./ProjectScroll";
-import { ArrowIcon } from "./icons";
 
 type ProjectArchiveProps = {
   projects: Project[];
@@ -12,20 +11,14 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
     <div className="project-archive">
       <ProjectScroll className="project-long-scroll">
         <div className="project-roll">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <article key={project.slug} className="project-entry">
-              <div className="project-entry-heading">
-                <span className="project-index">No. {String(index + 1).padStart(2, "0")}</span>
-                <span className="project-date">{project.period}</span>
-              </div>
-
               <h3>{project.title}</h3>
               <p className="project-summary">{project.summary}</p>
 
               <div className="project-actions">
                 <Link href={`/projects/${project.slug}`} className="project-cta">
-                  <span>Open case file</span>
-                  <ArrowIcon />
+                  <span>Open file</span>
                 </Link>
                 {project.links.map((link) => (
                   <a
@@ -36,7 +29,6 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
                     className="project-cta"
                   >
                     <span>{link.label}</span>
-                    <ArrowIcon />
                   </a>
                 ))}
               </div>
@@ -213,24 +205,6 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
             repeating-linear-gradient(90deg, rgba(72, 38, 12, 0.42) 0 4px, transparent 4px 9px);
         }
 
-        .project-entry-heading {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          gap: 0.7rem;
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 0.76rem;
-          font-weight: 900;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: rgba(16, 16, 16, 0.72);
-        }
-
-        .project-date {
-          color: var(--fg);
-        }
-
         .project-entry h3 {
           font-family: Georgia, "Times New Roman", serif;
           font-size: clamp(1.55rem, 3.4vw, 2.85rem);
@@ -251,6 +225,7 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
         .project-actions {
           display: flex;
           flex-wrap: wrap;
+          justify-content: center;
           gap: 0.75rem 1rem;
           margin-top: 0.35rem;
         }
@@ -292,28 +267,9 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
           text-transform: uppercase;
         }
 
-        .project-cta svg {
-          position: relative;
-          top: 0;
-          width: 18px;
-          height: 18px;
-          margin-left: 10px;
-          fill: none;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke: #3f3107;
-          stroke-width: 2;
-          transform: translateX(-5px);
-          transition: all 0.3s ease;
-        }
-
         .project-cta:hover::before {
           width: 100%;
           background: #ffe58f;
-        }
-
-        .project-cta:hover svg {
-          transform: translateX(0);
         }
 
         .project-cta:active {

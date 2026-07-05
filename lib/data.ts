@@ -14,6 +14,8 @@ export const profile = {
   links: {
     github: "https://github.com/mikemaeda",
     linkedin: "https://www.linkedin.com/in/mike-maeda",
+    instagram: "https://www.instagram.com/mikehmaeda/?hl=en",
+    x: "https://x.com/mikehmaeda?s=11",
     resume: "/resume.pdf?v=20260705-0326",
   },
 };
@@ -24,7 +26,7 @@ export const hero = {
     "Undergraduate pursuing a Bachelor's degree in Computer Science & Data Analytics at Alfred University.",
   // One short, confident sentence — no stats, no storytelling.
   intro:
-    "I'm a Computer Science major at Alfred University, focused on backend engineering and applied AI. I build full-stack web applications, most in Python with SQL-backed data layers and REST APIs. I'm drawn to backend and data-heavy work, designing pipelines and systems that hold up under real use, and I care as much about evaluating and understanding failure as I do about shipping something that works.",
+    "I'm a Computer Science & Data Analytics major at Alfred University, focused on backend engineering and applied AI. I build full-stack web applications, most in Python with SQL-backed data layers and REST APIs. I'm drawn to backend and data-heavy work, designing pipelines and systems that hold up under real use, and I care as much about evaluating and understanding failure as I do about shipping something that works.",
 };
 
 export type Experience = {
@@ -66,7 +68,7 @@ export const experience: Experience[] = [
     org: "Alfred University",
     context: "Identity access and authentication systems",
     location: "Alfred, NY",
-    period: "Sep 2025 - Present",
+    period: "Jan 2026 - Present",
     points: [
       "Selected among 13 student consultants supporting Alfred University's production technical systems for a user base of over 2,000 people.",
       "Troubleshoot identity access and authentication issues using Azure Entra ID, separating config problems, user errors, and issues that need escalation to senior engineers.",
@@ -266,7 +268,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "Frontend",
-    items: ["React"],
+    items: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
   },
 ];
 

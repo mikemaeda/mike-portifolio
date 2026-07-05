@@ -121,7 +121,7 @@ export default function Nav() {
           rel="noreferrer"
           onClick={() => setOpen(false)}
         >
-          Resume ↗
+          Resume
         </a>
       </div>
 

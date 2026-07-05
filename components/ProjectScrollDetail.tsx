@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Project } from "../lib/data";
 import ProjectScroll from "./ProjectScroll";
-import { ArrowIcon, GitHubIcon } from "./icons";
+import { GitHubIcon } from "./icons";
 
 type ProjectScrollDetailProps = {
   project: Project;
@@ -11,7 +11,6 @@ export default function ProjectScrollDetail({ project }: ProjectScrollDetailProp
   return (
     <ProjectScroll className="project-detail-scroll">
       <div className="scroll-heading">
-        <span className="archive-mark">{project.period}</span>
         <h3>{project.title}</h3>
       </div>
 
@@ -37,9 +36,8 @@ export default function ProjectScrollDetail({ project }: ProjectScrollDetailProp
       </div>
 
       <div className="scroll-actions">
-        <Link href={`/projects/${project.slug}`} className="btn btn-primary">
-          Open case file
-          <ArrowIcon />
+        <Link href={`/projects/${project.slug}`} className="scroll-action-link">
+          Open file
         </Link>
         {project.links.map((link) => (
           <a
@@ -47,9 +45,9 @@ export default function ProjectScrollDetail({ project }: ProjectScrollDetailProp
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="btn btn-ghost"
+            className="scroll-action-link"
           >
-            {link.label === "GitHub" ? <GitHubIcon /> : <ArrowIcon />}
+            {link.label === "GitHub" ? <GitHubIcon /> : null}
             {link.label}
           </a>
         ))}

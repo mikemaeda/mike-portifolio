@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../../components/Footer";
-import { ArrowIcon, ArrowLeftIcon, GitHubIcon } from "../../../components/icons";
 import { getProject, profile, projects } from "../../../lib/data";
 
 type Params = { slug: string };
@@ -49,13 +48,9 @@ export default async function ProjectPage({
     <section className="section detail-page">
       <div className="container detail-main">
         <Link href="/projects" className="detail-back">
-          <ArrowLeftIcon />
           Back to projects
         </Link>
 
-        <p className="kicker" style={{ marginTop: "1.5rem" }}>
-          {project.period}
-        </p>
         <h1 className="h-display detail-title">{project.title}</h1>
 
         <div className="detail-stack">
@@ -73,10 +68,9 @@ export default async function ProjectPage({
               href={l.href}
               target="_blank"
               rel="noreferrer"
-              className={`btn ${l.primary ? "btn-primary" : "btn-ghost"}`}
+              className="detail-action"
             >
-              {l.label === "GitHub" ? <GitHubIcon /> : <ArrowIcon />}
-              {l.label}
+              <span>{l.label}</span>
             </a>
           ))}
         </div>
@@ -103,9 +97,8 @@ export default async function ProjectPage({
         </div>
 
         <div className="detail-foot-nav">
-          <Link href="/projects" className="btn btn-ghost">
-            <ArrowLeftIcon />
-            All projects
+          <Link href="/projects" className="detail-action detail-action-soft">
+            <span>All projects</span>
           </Link>
         </div>
       </div>
@@ -121,20 +114,23 @@ export default async function ProjectPage({
         .detail-back {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
           font-size: 0.92rem;
           color: var(--fg);
-          padding: 8px 10px;
-          border: 1px solid var(--fg);
-          background: var(--accent-soft);
-          box-shadow: 4px 4px 0 rgba(16, 16, 16, 0.14);
-          transition: color 0.2s var(--ease);
+          padding: 8px 4px;
+          font-family: Georgia, "Times New Roman", serif;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          text-decoration: underline;
+          text-decoration-color: var(--accent);
+          text-decoration-thickness: 4px;
+          text-underline-offset: 5px;
+          transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
         }
-        .detail-back:hover { color: var(--fg); }
-        .detail-back svg { width: 17px; height: 17px; }
+        .detail-back:hover { text-decoration-color: var(--fg); }
 
         .detail-title {
-          margin-top: 1.25rem;
+          margin-top: 1.75rem;
           text-shadow: 4px 4px 0 var(--accent);
         }
 
@@ -147,8 +143,55 @@ export default async function ProjectPage({
         .detail-links {
           display: flex;
           flex-wrap: wrap;
-          gap: 12px;
+          justify-content: center;
+          gap: 0.85rem 1.2rem;
           margin-top: 1.5rem;
+        }
+
+        .detail-action {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 44px;
+          padding: 10px 18px;
+          border: 0;
+          background: transparent;
+          color: var(--fg);
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 0.98rem;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          isolation: isolate;
+          transition: transform 0.2s var(--ease);
+        }
+
+        .detail-action::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          inset: 52% 2px 12% 2px;
+          background:
+            radial-gradient(circle at 10% 50%, rgba(244, 195, 22, 0.55) 0 9px, transparent 10px),
+            linear-gradient(90deg, rgba(244, 195, 22, 0.45), rgba(255, 229, 143, 0.86), rgba(244, 195, 22, 0.5));
+          clip-path: polygon(0 28%, 9% 11%, 24% 24%, 38% 8%, 52% 26%, 69% 12%, 84% 22%, 100% 9%, 97% 82%, 78% 73%, 64% 90%, 49% 76%, 31% 88%, 17% 73%, 3% 86%);
+          transform: rotate(-1.2deg) scaleX(0.94);
+          transform-origin: left;
+          transition: inset 0.24s var(--ease), transform 0.24s var(--ease);
+        }
+
+        .detail-action:hover {
+          transform: translateY(-2px) rotate(-0.4deg);
+        }
+
+        .detail-action:hover::before {
+          inset: 18% -4px 8% -4px;
+          transform: rotate(-0.6deg) scaleX(1);
+        }
+
+        .detail-action-soft::before {
+          opacity: 0.72;
         }
 
         .detail-body {

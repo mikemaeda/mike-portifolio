@@ -20,7 +20,6 @@ export default function ProjectBook({ project, index, active, onSelect }: Projec
       <span className="book-label">
         <span className="book-title">{project.title}</span>
       </span>
-      <span className="book-period">{project.period}</span>
       <span className="book-band book-band-bottom" aria-hidden="true" />
     </button>
   );

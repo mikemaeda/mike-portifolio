@@ -1,12 +1,18 @@
 import { profile } from "../lib/data";
 import Reveal from "./Reveal";
-import { ArrowIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
+import { GitHubIcon, InstagramIcon, LinkedInIcon, MailIcon, XIcon } from "./icons";
 
 const channels = [
   {
-    label: "Email",
+    label: "School Email",
     value: profile.email,
     href: `mailto:${profile.email}`,
+    Icon: MailIcon,
+  },
+  {
+    label: "Personal Email",
+    value: "mikemaeda7@gmail.com",
+    href: "mailto:mikemaeda7@gmail.com",
     Icon: MailIcon,
   },
   {
@@ -14,6 +20,18 @@ const channels = [
     value: "in/mike-maeda",
     href: profile.links.linkedin,
     Icon: LinkedInIcon,
+  },
+  {
+    label: "Instagram",
+    value: "@mikehmaeda",
+    href: profile.links.instagram,
+    Icon: InstagramIcon,
+  },
+  {
+    label: "X",
+    value: "@mikehmaeda",
+    href: profile.links.x,
+    Icon: XIcon,
   },
   {
     label: "GitHub",
@@ -48,7 +66,6 @@ export default function Contact() {
                   <span className="contact-label">{c.label}</span>
                   <span className="contact-value">{c.value}</span>
                 </span>
-                <ArrowIcon className="contact-arrow" />
               </a>
             </Reveal>
           ))}
@@ -129,7 +146,6 @@ export default function Contact() {
           background: rgba(255, 248, 232, 0.55);
           box-shadow: 7px 8px 0 rgba(16, 16, 16, 0.13);
         }
-        .contact-row:hover .contact-arrow { transform: translate(2px, -2px); opacity: 1; }
         .contact-icon {
           display: inline-flex;
           align-items: center;
@@ -154,15 +170,6 @@ export default function Contact() {
           font-weight: 800;
         }
         .contact-value { font-size: 1rem; font-weight: 500; letter-spacing: -0.01em; }
-        .contact-arrow {
-          width: 18px;
-          height: 18px;
-          margin-left: auto;
-          color: var(--muted);
-          opacity: 0.55;
-          transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
-        }
-
         @media (max-width: 620px) {
           .contact-row {
             align-items: flex-start;

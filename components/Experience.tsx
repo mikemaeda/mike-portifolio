@@ -211,13 +211,27 @@ export default function Experience() {
           text-transform: uppercase;
         }
         .tl-period {
+          position: relative;
           font-family: "Times New Roman", Times, serif;
-          font-size: 0.78rem;
+          font-size: 0.76rem;
           color: var(--fg);
-          background: var(--accent-soft);
-          border: 1px solid var(--fg);
-          padding: 3px 6px;
+          padding: 0 2px 4px;
           white-space: nowrap;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .tl-period::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 4px;
+          background:
+            linear-gradient(90deg, rgba(244, 195, 22, 0.12), rgba(244, 195, 22, 0.85), rgba(244, 195, 22, 0.16));
+          clip-path: polygon(0 34%, 10% 15%, 24% 42%, 39% 18%, 52% 46%, 68% 16%, 83% 38%, 100% 20%, 100% 100%, 0 100%);
         }
         .tl-org {
           margin-top: 0.55rem;

@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { hero, profile } from "../lib/data";
-import { GitHubIcon, DownloadIcon } from "./icons";
 
 const heroLinks = [
-  { label: "Resume", href: profile.links.resume, external: true, Icon: DownloadIcon },
-  { label: "GitHub", href: profile.links.github, external: true, Icon: GitHubIcon },
+  { label: "Resume", href: profile.links.resume, external: true },
+  { label: "GitHub", href: profile.links.github, external: true },
   { label: "Projects", href: "/projects" },
   { label: "Skills", href: "/skills" },
   { label: "Experience", href: "/experience" },
@@ -30,7 +29,9 @@ export default function Hero() {
                 className="postcard-img postcard-img-front"
               />
             </div>
-            <figcaption>Portrait / Alfred NY</figcaption>
+            <figcaption>
+              <span>Alfred University • 2026</span>
+            </figcaption>
           </figure>
 
           <figure className="photo-postcard postcard-two">
@@ -44,7 +45,9 @@ export default function Hero() {
                 className="postcard-img postcard-img-back"
               />
             </div>
-            <figcaption>NYC / 2026</figcaption>
+            <figcaption>
+              <span>New York City • 2026</span>
+            </figcaption>
           </figure>
         </div>
 
@@ -77,7 +80,7 @@ export default function Hero() {
       </div>
 
         <nav className="walk-nav" aria-label="Portfolio shortcuts">
-          {heroLinks.map(({ label, href, external, Icon }, index) => (
+          {heroLinks.map(({ label, href, external }, index) => (
             <a
               key={label}
               href={href}
@@ -86,7 +89,6 @@ export default function Hero() {
               className="walk-button"
               style={{ animationDelay: `${index * 90}ms` }}
             >
-              {Icon ? <Icon /> : null}
               <span data-label={label}>{label}</span>
             </a>
           ))}
@@ -266,6 +268,8 @@ export default function Hero() {
         .photo-postcard figcaption {
           position: relative;
           z-index: 1;
+          display: grid;
+          gap: 3px;
           font-size: 0.74rem;
           font-weight: 800;
           letter-spacing: 0.12em;
@@ -580,15 +584,6 @@ export default function Hero() {
           white-space: nowrap;
         }
 
-        .walk-button svg {
-          position: relative;
-          width: 15px;
-          height: 15px;
-          color: var(--primary-color);
-          transition: color 0.2s, transform 0.2s;
-          transition-delay: 0.12s;
-        }
-
         .walk-button:hover {
           transform: translateY(-2px) rotate(-1deg);
         }
@@ -605,11 +600,6 @@ export default function Hero() {
 
         .walk-button:hover span::before {
           width: 100%;
-        }
-
-        .walk-button:hover svg {
-          transform: translateX(4px);
-          color: var(--hovered-color);
         }
 
         .walk-button:active {
@@ -678,8 +668,7 @@ export default function Hero() {
           .walk-button,
           .walk-button::before,
           .walk-button::after,
-          .walk-button span::before,
-          .walk-button svg {
+          .walk-button span::before {
             transition: none;
           }
 
