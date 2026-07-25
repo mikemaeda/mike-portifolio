@@ -32,7 +32,7 @@ export default function Hero() {
           </div>
           <div className="profile-slip">
             <p className="slip-label">CURRENT COORDINATES</p>
-            <p>Alfred, New York</p>
+            <p>New York</p>
             <p>CS + Data Analytics</p>
             <p>Backend systems + applied AI</p>
           </div>
