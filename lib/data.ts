@@ -9,7 +9,7 @@ export const profile = {
   role: "Computer Science & Data Analytics",
   school: "Alfred University",
   location: "Alfred, NY",
-  email: "mhm5@alfred.edu",
+  email: "mikemaeda7@gmail.com",
   phone: "+1 (607) 454-2470",
   links: {
     github: "https://github.com/mikemaeda",
