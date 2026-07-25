@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "../components/Nav";
-import DiscoEdges from "../components/DiscoEdges";
 
-const siteUrl = "https://mikemaeda.vercel.app";
+const siteUrl = "https://mikemaeda.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Mike Maeda — Computer Science & Data Analytics",
+  title: "Mike Maeda | Backend Engineer & Applied AI Builder",
   description:
-    "Mike Maeda is a Computer Science & Data Analytics student at Alfred University building data-backed software, full-stack apps, and AI/ML research. Seeking software engineering internships.",
+    "Mike Maeda builds dependable backend systems, applied AI tools, and data products. Computer Science and Data Analytics at Alfred University.",
   keywords: [
     "Mike Maeda",
     "software engineer",
@@ -26,20 +25,20 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Mike Maeda — Computer Science & Data Analytics",
+    title: "Mike Maeda | Backend Engineer & Applied AI Builder",
     description:
-      "CS & Data Analytics student building data-backed software, full-stack apps, and AI/ML research. Seeking software engineering internships.",
+      "Backend systems, applied AI, and data products, built with curiosity and tested with care.",
     url: siteUrl,
     siteName: "Mike Maeda",
     type: "website",
-    images: [{ url: "/profile.png", width: 1200, height: 630, alt: "Mike Maeda" }],
+    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Mike Maeda | Backend Systems, Applied AI, Data Products" }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Mike Maeda — Computer Science & Data Analytics",
+    card: "summary",
+    title: "Mike Maeda | Backend Engineer & Applied AI Builder",
     description:
-      "CS & Data Analytics student building data-backed software, full-stack apps, and AI/ML research.",
-    images: ["/profile.png"],
+      "Backend systems, applied AI, and data products, built with curiosity and tested with care.",
+    images: ["/og.png"],
   },
   alternates: { canonical: siteUrl },
 };
@@ -52,7 +51,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body>
-        <DiscoEdges />
         <Nav />
         <main>{children}</main>
       </body>

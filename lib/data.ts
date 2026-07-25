@@ -1,6 +1,6 @@
 // ============================================================
 // Single source of truth for all site content.
-// Edit copy here — never touch the components for content changes.
+// Edit copy here; never touch the components for content changes.
 // ============================================================
 
 export const profile = {
@@ -9,24 +9,24 @@ export const profile = {
   role: "Computer Science & Data Analytics",
   school: "Alfred University",
   location: "Alfred, NY",
-  email: "mhm5@alfred.edu",
+  email: "mikemaeda7@gmail.com",
   phone: "+1 (607) 454-2470",
   links: {
     github: "https://github.com/mikemaeda",
     linkedin: "https://www.linkedin.com/in/mike-maeda",
     instagram: "https://www.instagram.com/mikehmaeda/?hl=en",
     x: "https://x.com/mikehmaeda?s=11",
-    resume: "/resume.pdf?v=20260705-0326",
+    resume: "/resume.pdf?v=20260724",
   },
 };
 
 export const hero = {
-  headline: "Hi, I'm Mike Maeda.",
+  headline: "I build the machinery behind useful software.",
   subtitle:
     "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
-  // One short, confident sentence — no stats, no storytelling.
+  // One short, confident sentence; no stats, no storytelling.
   intro:
-    "I'm a Computer Science & Data Analytics double major at Alfred University, focused on backend engineering and applied AI. I build full-stack web applications, most in Python with SQL-backed data layers and REST APIs. I'm drawn to backend and data-heavy work, designing pipelines and systems that hold up under real use, and I care as much about evaluating and understanding failure as I do about shipping something that works.",
+    "I’m Mike, a backend-minded engineer and applied AI researcher who likes tracing a hard problem all the way from messy data to a system people can trust.",
 };
 
 export type Experience = {
@@ -39,6 +39,18 @@ export type Experience = {
 };
 
 export const experience: Experience[] = [
+  {
+    role: "Software Engineering Intern",
+    org: "FlyRank AI",
+    context: "Python backend services for AI products",
+    location: "Remote",
+    period: "Jun 2026 - Present",
+    points: [
+      "Engineering Python backend services and REST APIs across four AI-driven web applications.",
+      "Designed six endpoints that reduced average response latency by 40%, while reusable modules cut duplicated code by 35%.",
+      "Resolved 12 production issues through API tracing, unit tests, and regression testing.",
+    ],
+  },
   {
     role: "Undergraduate Research Assistant",
     org: "Alfred University Inamori School of Engineering",
@@ -64,11 +76,22 @@ export const experience: Experience[] = [
     ],
   },
   {
+    role: "Teaching Assistant, Analytics 101",
+    org: "Alfred University",
+    context: "Data analysis and quantitative reasoning",
+    location: "Alfred, NY",
+    period: "Jan 2026 - Present",
+    points: [
+      "Guide 30+ students through Excel modeling, what-if analysis, and debugging complex spreadsheets.",
+      "Teach students to interpret results and communicate quantitative findings clearly.",
+    ],
+  },
+  {
     role: "ITS Student HelpDesk Consultant",
     org: "Alfred University",
     context: "Identity access and authentication systems",
     location: "Alfred, NY",
-    period: "Jan 2026 - Present",
+    period: "Sep 2025 - Present",
     points: [
       "Selected among 13 student consultants supporting Alfred University's production technical systems for a user base of over 2,000 people.",
       "Troubleshoot identity access and authentication issues using Azure Entra ID, separating config problems, user errors, and issues that need escalation to senior engineers.",
@@ -81,7 +104,7 @@ export type Project = {
   slug: string;
   title: string;
   tagline: string;
-  // 2–3 line card description. Fuller problem/build/impact lives on the detail page.
+  // Two or three line card description. Fuller problem/build/impact lives on the detail page.
   summary: string;
   period: string;
   problem: string;
@@ -113,7 +136,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "GitHub",
-        href: "https://github.com/mikemaeda/ai201-project1-unofficial-guide-starter.git",
+        href: "https://github.com/mikemaeda/alfred-rag-assistant",
         primary: true,
       },
     ],
@@ -122,14 +145,14 @@ export const projects: Project[] = [
   {
     slug: "distilbert-sports-discourse-classifier",
     title: "DistilBERT Sports Discourse Classifier",
-    tagline: "Honest classifier benchmark",
+    tagline: "Model benchmarking and error analysis",
     summary:
-      "Fine-tuned a DistilBERT model on a hand-built dataset, then honestly benchmarked it against a much larger zero-shot LLM, and it lost. Here's why that mattered.",
+      "Fine-tuned DistilBERT on a hand-built dataset, reached 87.5% accuracy, and used confusion matrices to uncover the model’s keyword shortcuts.",
     period: "2026",
     problem:
       "Sports discussion is not just about topic; it is also about argument style. I wanted to classify whether a comment was analysis, a hot take, or a reaction, then compare a small fine-tuned model against a much larger zero-shot baseline.",
     build:
-      "I fine-tuned distilbert-base-uncased on a 212-example dataset I built by hand, training it to classify sports discussion by argument style rather than by topic. It reached 87.5% accuracy and a 0.876 macro-F1 score. I then benchmarked it fairly against a zero-shot Llama-3.3-70B baseline on the same held-out test set, and my fine-tuned model lost, 90.6% to 87.5%. Instead of leaving that out, I dug into why: using confusion matrices and per-class error analysis, I found that my smaller model had learned a keyword shortcut instead of actually reasoning about argument structure. Most student projects only show the win. I think showing the honest result, and knowing exactly why it happened, says more about how I actually think.",
+      "I fine-tuned distilbert-base-uncased on a 212-example dataset I built by hand, training it to classify sports discussion by argument style rather than topic. It reached 87.5% accuracy and a 0.876 macro-F1 score. I benchmarked it against a zero-shot Llama-3.3-70B baseline on the same held-out set, then used confusion matrices and per-class error analysis to find where the smaller model relied on keyword shortcuts instead of argument structure.",
     impact: [
       "Reached 87.5% accuracy and 0.876 macro-F1 on a hand-built evaluation set.",
       "Benchmarked fairly against a stronger zero-shot Llama-3.3-70B baseline.",
@@ -177,21 +200,21 @@ export const projects: Project[] = [
     title: "FitFindr Multi-Tool Agent",
     tagline: "AI multi-tool product assistant",
     summary:
-      "A multi-tool AI agent project exploring product search and recommendation workflows.",
+      "A deterministic multi-tool AI agent that chains catalog search, LLM styling, and caption generation through shared session state.",
     period: "2026",
     problem:
       "Shopping assistants need to coordinate multiple tools instead of producing a single unsupported answer.",
     build:
-      "Built a FitFindr multi-tool agent project to experiment with tool use, product search flow, and recommendation behavior.",
+      "Built a deterministic orchestration loop in Python that coordinates catalog search, LLM-based reasoning, and generation through shared session state. Every tool boundary includes explicit failure handling and fallback behavior.",
     impact: [
-      "Explored multi-step agent workflows beyond a single prompt-and-response pattern.",
-      "Kept as a secondary project for readers who want to see more AI systems work.",
+      "Validated tool integrations and failure paths with an 8-test pytest suite.",
+      "Designed predictable orchestration instead of relying on opaque agent behavior.",
     ],
-    stack: ["Python", "AI Agents"],
+    stack: ["Python", "Groq LLM", "Agent Orchestration", "Pytest"],
     links: [
       {
         label: "GitHub",
-        href: "https://github.com/mikemaeda/ai201-project2-fitfindr.git",
+        href: "https://github.com/mikemaeda/fitfindr-multi-tool-agent",
         primary: true,
       },
     ],
