@@ -1,6 +1,6 @@
 // ============================================================
 // Single source of truth for all site content.
-// Edit copy here — never touch the components for content changes.
+// Edit copy here; never touch the components for content changes.
 // ============================================================
 
 export const profile = {
@@ -24,9 +24,9 @@ export const hero = {
   headline: "I build the machinery behind useful software.",
   subtitle:
     "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
-  // One short, confident sentence — no stats, no storytelling.
+  // One short, confident sentence; no stats, no storytelling.
   intro:
-    "I’m Mike — a backend-minded engineer and applied AI researcher who likes tracing a hard problem all the way from messy data to a system people can trust.",
+    "I’m Mike, a backend-minded engineer and applied AI researcher who likes tracing a hard problem all the way from messy data to a system people can trust.",
 };
 
 export type Experience = {
@@ -104,7 +104,7 @@ export type Project = {
   slug: string;
   title: string;
   tagline: string;
-  // 2–3 line card description. Fuller problem/build/impact lives on the detail page.
+  // Two or three line card description. Fuller problem/build/impact lives on the detail page.
   summary: string;
   period: string;
   problem: string;
