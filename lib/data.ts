@@ -21,12 +21,12 @@ export const profile = {
 };
 
 export const hero = {
-  headline: "I build the machinery behind useful software.",
+  headline: "Software Engineer.",
   subtitle:
     "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
   // One short, confident sentence; no stats, no storytelling.
   intro:
-    "I’m Mike, a backend-minded engineer and applied AI researcher who likes tracing a hard problem all the way from messy data to a system people can trust.",
+    "I’m Mike, a Computer Science and Data Analytics double major at Alfred University. I build full-stack applications and data-driven systems, with a focus on backend engineering, applied AI, and software that solves real problems.",
 };
 
 export type Experience = {
