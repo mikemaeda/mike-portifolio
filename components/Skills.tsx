@@ -17,7 +17,7 @@ export default function Skills() {
               <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
             </div>
           ))}
-          <p className="console-foot">Always learning: system design, evaluation, and the boring details that make software dependable.</p>
+          <p className="console-foot">Always learning: system design, performance testing, and the details that make software dependable.</p>
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ export default function Hero() {
         </aside>
       </div>
       <div className="ticker" aria-hidden="true">
-        <div>PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · HONEST EVALUATION · PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · HONEST EVALUATION ·</div>
+        <div>PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · MEASURED RESULTS · PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · MEASURED RESULTS ·</div>
       </div>
     </section>
   );

@@ -145,14 +145,14 @@ export const projects: Project[] = [
   {
     slug: "distilbert-sports-discourse-classifier",
     title: "DistilBERT Sports Discourse Classifier",
-    tagline: "Honest classifier benchmark",
+    tagline: "Model benchmarking and error analysis",
     summary:
-      "Fine-tuned a DistilBERT model on a hand-built dataset, then honestly benchmarked it against a much larger zero-shot LLM, and it lost. Here's why that mattered.",
+      "Fine-tuned DistilBERT on a hand-built dataset, reached 87.5% accuracy, and used confusion matrices to uncover the model’s keyword shortcuts.",
     period: "2026",
     problem:
       "Sports discussion is not just about topic; it is also about argument style. I wanted to classify whether a comment was analysis, a hot take, or a reaction, then compare a small fine-tuned model against a much larger zero-shot baseline.",
     build:
-      "I fine-tuned distilbert-base-uncased on a 212-example dataset I built by hand, training it to classify sports discussion by argument style rather than by topic. It reached 87.5% accuracy and a 0.876 macro-F1 score. I then benchmarked it fairly against a zero-shot Llama-3.3-70B baseline on the same held-out test set, and my fine-tuned model lost, 90.6% to 87.5%. Instead of leaving that out, I dug into why: using confusion matrices and per-class error analysis, I found that my smaller model had learned a keyword shortcut instead of actually reasoning about argument structure. Most student projects only show the win. I think showing the honest result, and knowing exactly why it happened, says more about how I actually think.",
+      "I fine-tuned distilbert-base-uncased on a 212-example dataset I built by hand, training it to classify sports discussion by argument style rather than topic. It reached 87.5% accuracy and a 0.876 macro-F1 score. I benchmarked it against a zero-shot Llama-3.3-70B baseline on the same held-out set, then used confusion matrices and per-class error analysis to find where the smaller model relied on keyword shortcuts instead of argument structure.",
     impact: [
       "Reached 87.5% accuracy and 0.876 macro-F1 on a hand-built evaluation set.",
       "Benchmarked fairly against a stronger zero-shot Llama-3.3-70B baseline.",
