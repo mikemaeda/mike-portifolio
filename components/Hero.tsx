@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="hero-proof" aria-label="Quick facts">
             <div><strong>3.88</strong><span>GPA / 4.0</span></div>
             <div><strong>4</strong><span>AI apps at FlyRank</span></div>
-            <div><strong>90%</strong><span>CV validation accuracy</span></div>
+            <div><strong>150+</strong><span>GitHub contributions this year</span></div>
           </div>
         </div>
 
