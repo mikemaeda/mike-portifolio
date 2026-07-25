@@ -55,7 +55,7 @@ button { color: inherit; font: inherit; }
 .nav-resume:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
 .menu-button { display: none; border: 0; background: transparent; font-size: .75rem; font-weight: 800; text-transform: uppercase; }
 
-.hero { min-height: 100svh; padding: 132px 0 0; overflow: hidden; background: linear-gradient(90deg, transparent 49.9%, var(--line) 50%, transparent 50.1%), var(--paper); }
+.hero { min-height: 100svh; padding: 132px 0 0; overflow: hidden; background: var(--paper); }
 .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(40px, 7vw, 100px); align-items: center; min-height: calc(100svh - 182px); padding-bottom: 70px; }
 .hero-copy { max-width: 730px; }
 .eyebrow { width: fit-content; display: flex; align-items: center; gap: 9px; padding: 8px 11px; border: 1px solid var(--ink); background: white; font-family: ui-monospace, monospace; font-size: .69rem; font-weight: 700; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); }
