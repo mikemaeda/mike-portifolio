@@ -26,7 +26,7 @@ export const hero = {
     "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
   // One short, confident sentence; no stats, no storytelling.
   intro:
-    "I’m Mike, a Computer Science and Data Analytics double major at Alfred University. I build full-stack applications and data-driven systems, with a focus on backend engineering, applied AI, and software that solves real problems.",
+    "I’m a Computer Science and Data Analytics student at Alfred University. I build full-stack applications, backend systems, and applied AI projects.",
 };
 
 export type Experience = {
@@ -60,7 +60,7 @@ export const experience: Experience[] = [
     points: [
       "Researching AI-driven electronic waste classification, building a computer vision system that identifies materials like circuit boards and copper wiring to automate recycling workflows.",
       "Built a TensorFlow and MobileNetV2 transfer-learning classifier that currently reaches about 90% validation accuracy, supported by a backend data pipeline that cut research processing time by 50%.",
-      "The work has shown me how much of an AI problem is a data problem before it is ever a modeling problem.",
+      "Improved the training-data workflow used to evaluate and refine the model.",
     ],
   },
   {
@@ -72,7 +72,7 @@ export const experience: Experience[] = [
     points: [
       "Engineered real-time backend control software in Java for a competitive robotics system, improving autonomous accuracy by 35% and cutting operational errors by 30%.",
       "Built autonomous decision-making logic and real-time sensor processing loops that integrated multiple sensor inputs simultaneously.",
-      "This was my first real exposure to software that has to work correctly the first time, under a clock, with no chance to patch it mid-match.",
+      "Tested control logic under match conditions where reliability and fast response times were essential.",
     ],
   },
   {
@@ -95,7 +95,7 @@ export const experience: Experience[] = [
     points: [
       "Selected among 13 student consultants supporting Alfred University's production technical systems for a user base of over 2,000 people.",
       "Troubleshoot identity access and authentication issues using Azure Entra ID, separating config problems, user errors, and issues that need escalation to senior engineers.",
-      "The role has taught me how to explain technical problems clearly to people who do not think in technical terms.",
+      "Explain technical problems and solutions clearly to users with different levels of technical experience.",
     ],
   },
 ];
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     problem:
       "Student-life information is scattered across small documents, and generic chatbots can confidently answer with unsupported guesses. I wanted a grounded assistant that could answer from a known source set and refuse when the answer was not there.",
     build:
-      "I built a RAG system that answers Alfred University student-life questions from a small, curated 10-document knowledge base. The pipeline chunks documents into 47 segments, embeds them with sentence-transformers, stores them in ChromaDB, and generates grounded answers with Groq's LLaMA 3.3 model, including a refusal mechanism so it says \"I don't know\" instead of guessing. The most interesting part wasn't building it, it was debugging it. One test question kept returning a confident, wrong answer with no errors anywhere. I had to trace backward through the entire pipeline, chunking, then embeddings, then retrieval, before finding a retrieval-recall failure: the right information existed in the vector store, it just wasn't being retrieved. Fixing it meant rethinking how I chunked content in the first place. It's the project that taught me that in AI systems, correctness depends on every step in the pipeline, not just the model at the end.",
+      "I built a RAG system that answers Alfred University student-life questions from a curated 10-document knowledge base. The pipeline divides the documents into 47 chunks, creates embeddings with sentence-transformers, stores them in ChromaDB, and generates answers with Groq's Llama 3.3 model. I also added refusal behavior for questions the source material cannot answer. During testing, I traced an incorrect answer to a retrieval-recall issue and revised the document chunking strategy to improve retrieval.",
     impact: [
       "Built and evaluated an end-to-end RAG pipeline from chunking to embedding to generation.",
       "Added refusal behavior so the assistant can say it does not know instead of inventing answers.",
@@ -178,7 +178,7 @@ export const projects: Project[] = [
     problem:
       "Personal budgeting tools are either bloated or insecure. I built a focused, deployable platform with real authentication, budget alerts, and a relational data model.",
     build:
-      "A full-stack personal expense tracker with a Python/Flask backend and a JavaScript frontend, built and shipped entirely on my own. It supports Google OAuth with a graceful fallback to username/password login, budget tracking with automated email alerts, CSV export, and over 20 REST API endpoints backed by a normalized SQLite database. It's deployed live on Vercel. One tradeoff I made knowingly: Vercel's serverless environment means SQLite storage is temporary, which is fine for a demo but not for a real long-lived app, a production version would need to move to something like Postgres. I'd rather state that limitation clearly than pretend it isn't there.",
+      "I built a full-stack expense tracker with a Python and Flask backend and a JavaScript frontend. It supports Google OAuth, username and password login, budget tracking, automated email alerts, CSV export, and more than 20 REST API endpoints backed by a normalized SQLite database. The demo is deployed on Vercel; a production version would use persistent storage such as PostgreSQL instead of SQLite in a serverless environment.",
     impact: [
       "Implemented Google OAuth, fallback login, budget tracking, email alerts, and CSV export.",
       "Built 20+ REST endpoints backed by a normalized SQLite database.",

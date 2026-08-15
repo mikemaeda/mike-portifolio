@@ -7,11 +7,7 @@ export default function Hero() {
     <section className="hero" id="top">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <div className="eyebrow">
-            <span className="status-dot" />
-            Open to Summer 2027 software engineering internships
-          </div>
-          <p className="hero-index">FIELD NOTE 001 / MIKE MAEDA</p>
+          <p className="hero-index">MIKE MAEDA / SOFTWARE ENGINEER</p>
           <h1>{hero.headline}</h1>
           <p className="hero-intro">{hero.intro}</p>
           <div className="hero-actions">
@@ -31,16 +27,16 @@ export default function Hero() {
             <span className="photo-code">MM / 26</span>
           </div>
           <div className="profile-slip">
-            <p className="slip-label">CURRENT COORDINATES</p>
+            <p className="slip-label">ABOUT</p>
             <p>New York</p>
             <p>CS + Data Analytics</p>
             <p>Backend systems + applied AI</p>
           </div>
-          <div className="orbit-note">BUILD → TEST → TRACE → IMPROVE</div>
+          <div className="orbit-note">BACKEND · DATA · APPLIED AI</div>
         </aside>
       </div>
       <div className="ticker" aria-hidden="true">
-        <div>PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · MEASURED RESULTS · PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · MEASURED RESULTS ·</div>
+        <div>PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS ·</div>
       </div>
     </section>
   );

@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     "computer science",
     "data analytics",
     "Alfred University",
-    "software engineering internship",
     "full-stack developer",
   ],
   authors: [{ name: "Mike Maeda" }],

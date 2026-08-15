@@ -37,7 +37,7 @@ export default function ProjectScrollDetail({ project }: ProjectScrollDetailProp
 
       <div className="scroll-actions">
         <Link href={`/projects/${project.slug}`} className="scroll-action-link">
-          Open file
+          View details
         </Link>
         {project.links.map((link) => (
           <a

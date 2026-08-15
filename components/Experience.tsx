@@ -5,8 +5,8 @@ export default function Experience() {
     <section id="experience" className="section experience-section">
       <div className="container">
         <div className="section-heading section-heading-light">
-          <p className="section-number">02 / WHERE I’VE LEARNED</p>
-          <h2>Built in classrooms,<br />labs, and production.</h2>
+          <p className="section-number">02 / EXPERIENCE</p>
+          <h2>Work and research experience.</h2>
         </div>
         <div className="experience-list">
           {experience.map((job, index) => (

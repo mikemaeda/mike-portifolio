@@ -18,7 +18,7 @@ export default function ProjectArchive({ projects }: ProjectArchiveProps) {
 
               <div className="project-actions">
                 <Link href={`/projects/${project.slug}`} className="project-cta">
-                  <span>Open file</span>
+                  <span>View project</span>
                 </Link>
                 {project.links.map((link) => (
                   <a
