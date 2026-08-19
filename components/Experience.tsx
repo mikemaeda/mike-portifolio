@@ -5,12 +5,13 @@ export default function Experience() {
     <section id="experience" className="section experience-section">
       <div className="container">
         <div className="section-heading section-heading-light">
-          <p className="section-number">EXPERIENCE</p>
-          <h2>Research, support, and teaching.</h2>
+          <p className="section-number">02 / EXPERIENCE</p>
+          <h2>Work and research experience.</h2>
         </div>
         <div className="experience-list">
-          {experience.map((job) => (
+          {experience.map((job, index) => (
             <article className="experience-row" key={`${job.role}-${job.org}`}>
+              <div className="experience-order">0{index + 1}</div>
               <div className="experience-meta">
                 <p>{job.period}</p>
                 <p>{job.location}</p>
