@@ -6,9 +6,9 @@ const siteUrl = "https://mikemaeda.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Mike Maeda | Backend Engineer & Applied AI Builder",
+  title: "Mike Maeda | Computer Science & Data Analytics",
   description:
-    "Mike Maeda builds dependable backend systems, applied AI tools, and data products. Computer Science and Data Analytics at Alfred University.",
+    "Mike Maeda is a Computer Science and Data Analytics student at Alfred University building practical software, data, and research projects.",
   keywords: [
     "Mike Maeda",
     "software engineer",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Mike Maeda | Backend Engineer & Applied AI Builder",
+    title: "Mike Maeda | Computer Science & Data Analytics",
     description:
-      "Backend systems, applied AI, and data products, built with curiosity and tested with care.",
+      "Practical software, data, and research projects from an Alfred University student.",
     url: siteUrl,
     siteName: "Mike Maeda",
     type: "website",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Mike Maeda | Backend Engineer & Applied AI Builder",
+    title: "Mike Maeda | Computer Science & Data Analytics",
     description:
-      "Backend systems, applied AI, and data products, built with curiosity and tested with care.",
+      "Practical software, data, and research projects from an Alfred University student.",
     images: ["/og.png"],
   },
   alternates: { canonical: siteUrl },

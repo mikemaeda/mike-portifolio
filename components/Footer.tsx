@@ -5,8 +5,8 @@ export default function Footer() {
     <footer>
       <div className="container footer-grid">
         <p>MIKE MAEDA © {new Date().getFullYear()}</p>
-        <p>BUILT WITH NEXT.JS.</p>
-        <Link href="#top">BACK TO TOP ↑</Link>
+        <p>ALFRED, NEW YORK</p>
+        <Link href="#top">BACK TO TOP</Link>
       </div>
     </footer>
   );
