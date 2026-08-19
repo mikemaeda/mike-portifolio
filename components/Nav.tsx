@@ -13,19 +13,18 @@ export default function Nav() {
     <header className="site-header">
       <div className="nav-shell container">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">M</span>
-          <span>Mike Maeda<small>Engineer / Researcher</small></span>
+          <span>Mike Maeda</span>
         </Link>
         <button className="menu-button" type="button" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen(!open)}>
           <span>{open ? "Close" : "Menu"}</span>
         </button>
         <nav className={open ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
-          {nav.map((item, index) => (
+          {nav.map((item) => (
             <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setOpen(false)}>
-              <span>0{index + 1}</span>{item.label}
+              {item.label}
             </Link>
           ))}
-          <a href={profile.links.resume} target="_blank" rel="noreferrer" className="nav-resume">Résumé ↗</a>
+          <a href={profile.links.resume} target="_blank" rel="noreferrer" className="nav-resume">Résumé</a>
         </nav>
       </div>
     </header>

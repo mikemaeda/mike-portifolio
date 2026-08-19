@@ -1,32 +1,21 @@
-// ============================================================
-// Single source of truth for all site content.
-// Edit copy here; never touch the components for content changes.
-// ============================================================
-
 export const profile = {
   name: "Mike Maeda",
-  // Used in the page title / hero role line
   role: "Computer Science & Data Analytics",
   school: "Alfred University",
   location: "Alfred, NY",
-  email: "mikemaeda7@gmail.com",
+  email: "mhm5@alfred.edu",
   phone: "+1 (607) 454-2470",
   links: {
     github: "https://github.com/mikemaeda",
     linkedin: "https://www.linkedin.com/in/mike-maeda",
-    instagram: "https://www.instagram.com/mikehmaeda/?hl=en",
-    x: "https://x.com/mikehmaeda?s=11",
-    resume: "/resume.pdf?v=20260724",
+    resume: "/resume.pdf?v=20260819",
   },
 };
 
 export const hero = {
-  headline: "Software Engineer.",
-  subtitle:
-    "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
-  // One short, confident sentence; no stats, no storytelling.
+  headline: "Mike Maeda",
   intro:
-    "I’m a Computer Science and Data Analytics student at Alfred University. I build full-stack applications, backend systems, and applied AI projects.",
+    "I study Computer Science and Data Analytics at Alfred University. I build practical software for problems I understand—from offline school records to student support and electronic-waste research.",
 };
 
 export type Experience = {
@@ -40,62 +29,35 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Software Engineering Intern",
-    org: "FlyRank AI",
-    context: "Python backend services for AI products",
-    location: "Remote",
-    period: "Jun 2026 - Present",
-    points: [
-      "Engineering Python backend services and REST APIs across four AI-driven web applications.",
-      "Designed six endpoints that reduced average response latency by 40%, while reusable modules cut duplicated code by 35%.",
-      "Resolved 12 production issues through API tracing, unit tests, and regression testing.",
-    ],
-  },
-  {
     role: "Undergraduate Research Assistant",
-    org: "Alfred University Inamori School of Engineering",
-    context: "AI-driven electronic waste classification",
+    org: "Alfred University, Inamori School of Engineering",
+    context: "Python, TensorFlow",
     location: "Alfred, NY",
     period: "May 2026 - Present",
     points: [
-      "Researching AI-driven electronic waste classification, building a computer vision system that identifies materials like circuit boards and copper wiring to automate recycling workflows.",
-      "Built a TensorFlow and MobileNetV2 transfer-learning classifier that currently reaches about 90% validation accuracy, supported by a backend data pipeline that cut research processing time by 50%.",
-      "Improved the training-data workflow used to evaluate and refine the model.",
-    ],
-  },
-  {
-    role: "Robotics Software Developer",
-    org: "FIRST Robotics Challenge",
-    context: "Java control software",
-    location: "Ramat HaSharon, Israel",
-    period: "Aug 2023 - May 2025",
-    points: [
-      "Engineered real-time backend control software in Java for a competitive robotics system, improving autonomous accuracy by 35% and cutting operational errors by 30%.",
-      "Built autonomous decision-making logic and real-time sensor processing loops that integrated multiple sensor inputs simultaneously.",
-      "Tested control logic under match conditions where reliability and fast response times were essential.",
-    ],
-  },
-  {
-    role: "Teaching Assistant, Analytics 101",
-    org: "Alfred University",
-    context: "Data analysis and quantitative reasoning",
-    location: "Alfred, NY",
-    period: "Jan 2026 - Present",
-    points: [
-      "Guide 30+ students through Excel modeling, what-if analysis, and debugging complex spreadsheets.",
-      "Teach students to interpret results and communicate quantitative findings clearly.",
+      "Building a computer-vision pipeline that identifies electronic-waste components across more than 28,000 images at about 90% validation accuracy.",
+      "Engineered an end-to-end Python inference and recovery-scoring workflow that improved research processing throughput by 50%.",
     ],
   },
   {
     role: "ITS Student HelpDesk Consultant",
     org: "Alfred University",
-    context: "Identity access and authentication systems",
+    context: "Microsoft Entra ID, Identity & Access",
     location: "Alfred, NY",
     period: "Sep 2025 - Present",
     points: [
-      "Selected among 13 student consultants supporting Alfred University's production technical systems for a user base of over 2,000 people.",
-      "Troubleshoot identity access and authentication issues using Azure Entra ID, separating config problems, user errors, and issues that need escalation to senior engineers.",
-      "Explain technical problems and solutions clearly to users with different levels of technical experience.",
+      "Support production identity and access systems for more than 2,000 users as one of 13 student consultants.",
+      "Resolve hardware, software, MFA, account-recovery, and authentication incidents through root-cause troubleshooting and clear documentation.",
+    ],
+  },
+  {
+    role: "Teaching Assistant, Analytics 101",
+    org: "Alfred University",
+    context: "Excel, Data Analysis",
+    location: "Alfred, NY",
+    period: "Jan 2026 - Present",
+    points: [
+      "Facilitate Excel-based data analysis sessions for more than 30 students, covering structured formulas, what-if analysis, and financial modeling.",
     ],
   },
 ];
@@ -104,7 +66,6 @@ export type Project = {
   slug: string;
   title: string;
   tagline: string;
-  // Two or three line card description. Fuller problem/build/impact lives on the detail page.
   summary: string;
   period: string;
   problem: string;
@@ -117,185 +78,75 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "alfred-rag-assistant",
-    title: "Alfred RAG Assistant",
-    tagline: "Student-life retrieval assistant",
+    slug: "school-management-system",
+    title: "School Management System",
+    tagline: "Offline school administration",
     summary:
-      "A retrieval-augmented generation system that answers student-life questions, built and evaluated end-to-end, including diagnosing a retrieval bug that caused confident, wrong answers.",
-    period: "2026",
+      "An offline-capable records system inspired by schools in Tanzania that still depend on paper-based administration and unreliable internet.",
+    period: "2025",
     problem:
-      "Student-life information is scattered across small documents, and generic chatbots can confidently answer with unsupported guesses. I wanted a grounded assistant that could answer from a known source set and refuse when the answer was not there.",
+      "Growing up in Tanzania, I saw how unreliable internet and paper-based administration can slow down everyday school operations. I wanted the core records workflow to remain useful without a network connection.",
     build:
-      "I built a RAG system that answers Alfred University student-life questions from a curated 10-document knowledge base. The pipeline divides the documents into 47 chunks, creates embeddings with sentence-transformers, stores them in ChromaDB, and generates answers with Groq's Llama 3.3 model. I also added refusal behavior for questions the source material cannot answer. During testing, I traced an incorrect answer to a retrieval-recall issue and revised the document chunking strategy to improve retrieval.",
+      "I built a Java and Python system backed by SQLite, using object-oriented design, automated CRUD workflows, and a normalized relational schema to manage student and administrative records locally.",
     impact: [
-      "Built and evaluated an end-to-end RAG pipeline from chunking to embedding to generation.",
-      "Added refusal behavior so the assistant can say it does not know instead of inventing answers.",
-      "Diagnosed a retrieval-recall failure by tracing the full pipeline instead of only tuning the model.",
+      "Manages more than 1,000 records without requiring internet access.",
+      "Improved administrative query efficiency by 40% through a normalized SQL schema.",
     ],
-    stack: ["Python", "ChromaDB", "Groq LLM", "Gradio"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikemaeda/alfred-rag-assistant",
-        primary: true,
-      },
-    ],
+    stack: ["Java", "Python", "SQL", "SQLite"],
+    links: [{ label: "GitHub", href: "https://github.com/mikemaeda/school-management-system", primary: true }],
     featured: true,
   },
   {
-    slug: "distilbert-sports-discourse-classifier",
-    title: "DistilBERT Sports Discourse Classifier",
-    tagline: "Model benchmarking and error analysis",
+    slug: "alfred-rag-assistant",
+    title: "Alfred RAG Assistant",
+    tagline: "Grounded student-life answers",
     summary:
-      "Fine-tuned DistilBERT on a hand-built dataset, reached 87.5% accuracy, and used confusion matrices to uncover the model’s keyword shortcuts.",
+      "A retrieval-augmented assistant that answers Alfred student-life questions from a small, curated knowledge base and refuses unsupported questions.",
     period: "2026",
     problem:
-      "Sports discussion is not just about topic; it is also about argument style. I wanted to classify whether a comment was analysis, a hot take, or a reaction, then compare a small fine-tuned model against a much larger zero-shot baseline.",
+      "Useful student information is scattered across documents, while general chatbots can answer confidently without evidence. I wanted a narrow assistant whose answers could be traced back to known sources.",
     build:
-      "I fine-tuned distilbert-base-uncased on a 212-example dataset I built by hand, training it to classify sports discussion by argument style rather than topic. It reached 87.5% accuracy and a 0.876 macro-F1 score. I benchmarked it against a zero-shot Llama-3.3-70B baseline on the same held-out set, then used confusion matrices and per-class error analysis to find where the smaller model relied on keyword shortcuts instead of argument structure.",
+      "I built a Python RAG pipeline over a 10-document knowledge base, producing 47 embedded segments in ChromaDB and retrieving the top four sources for Groq's Llama 3.3 model. The system includes source attribution and strict refusal behavior.",
     impact: [
-      "Reached 87.5% accuracy and 0.876 macro-F1 on a hand-built evaluation set.",
-      "Benchmarked fairly against a stronger zero-shot Llama-3.3-70B baseline.",
-      "Used confusion matrices and per-class error analysis to explain why the smaller model failed.",
+      "Evaluated at 80% response accuracy on a focused question set.",
+      "Added grounded citations and refusal behavior to reduce hallucinated answers.",
     ],
-    stack: ["Python", "PyTorch", "HuggingFace Transformers"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikemaeda/ai201-project4-provenance-guard.git",
-        primary: true,
-      },
-    ],
+    stack: ["Python", "ChromaDB", "Groq LLM", "Gradio"],
+    links: [{ label: "GitHub", href: "https://github.com/mikemaeda/alfred-rag-assistant", primary: true }],
     featured: true,
   },
   {
     slug: "expense-tracker",
     title: "Expense Tracker",
-    tagline: "Full-stack personal finance platform",
+    tagline: "Student-focused budgeting",
     summary:
-      "A full-stack expense tracking app with Google OAuth, budget alerts, and 20+ REST endpoints, built and deployed live from scratch.",
-    period: "Apr 2026",
+      "A full-stack budgeting application with authentication, alerts, exports, and more than 20 REST endpoints.",
+    period: "2026",
     problem:
-      "Personal budgeting tools are either bloated or insecure. I built a focused, deployable platform with real authentication, budget alerts, and a relational data model.",
+      "Students managing tight budgets should not need a complicated spreadsheet or an oversized finance app to understand where their money is going.",
     build:
-      "I built a full-stack expense tracker with a Python and Flask backend and a JavaScript frontend. It supports Google OAuth, username and password login, budget tracking, automated email alerts, CSV export, and more than 20 REST API endpoints backed by a normalized SQLite database. The demo is deployed on Vercel; a production version would use persistent storage such as PostgreSQL instead of SQLite in a serverless environment.",
+      "I built a Flask backend and JavaScript frontend with Google OAuth, session-based authentication, budget tracking, email notifications, CSV export, and a normalized SQLite schema.",
     impact: [
-      "Implemented Google OAuth, fallback login, budget tracking, email alerts, and CSV export.",
-      "Built 20+ REST endpoints backed by a normalized SQLite database.",
-      "Deployed live while clearly documenting the serverless SQLite tradeoff.",
+      "Delivered more than eight user-facing features across 20+ REST endpoints.",
+      "Deployed the application to Vercel with automated email notifications.",
     ],
-    stack: ["Python", "Flask", "JavaScript", "SQLite", "REST APIs", "OAuth", "Vercel"],
+    stack: ["Python", "Flask", "JavaScript", "SQLite", "REST APIs", "OAuth"],
     links: [
-      {
-        label: "Live demo",
-        href: "https://expense-tracker-app-mauve-gamma.vercel.app/",
-        primary: true,
-      },
+      { label: "Live demo", href: "https://expense-tracker-app-mauve-gamma.vercel.app/", primary: true },
       { label: "GitHub", href: "https://github.com/mikemaeda/expense-tracker-.git" },
     ],
     featured: true,
-  },
-  {
-    slug: "fitfindr-multi-tool-agent",
-    title: "FitFindr Multi-Tool Agent",
-    tagline: "AI multi-tool product assistant",
-    summary:
-      "A deterministic multi-tool AI agent that chains catalog search, LLM styling, and caption generation through shared session state.",
-    period: "2026",
-    problem:
-      "Shopping assistants need to coordinate multiple tools instead of producing a single unsupported answer.",
-    build:
-      "Built a deterministic orchestration loop in Python that coordinates catalog search, LLM-based reasoning, and generation through shared session state. Every tool boundary includes explicit failure handling and fallback behavior.",
-    impact: [
-      "Validated tool integrations and failure paths with an 8-test pytest suite.",
-      "Designed predictable orchestration instead of relying on opaque agent behavior.",
-    ],
-    stack: ["Python", "Groq LLM", "Agent Orchestration", "Pytest"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikemaeda/fitfindr-multi-tool-agent",
-        primary: true,
-      },
-    ],
-  },
-  {
-    slug: "school-management-system",
-    title: "School Management System",
-    tagline: "Java desktop information system",
-    summary:
-      "A Java desktop information system backed by a normalized SQLite database, automating records and attendance for 1,000+ academic entries through SQL CRUD operations.",
-    period: "Oct - Nov 2025",
-    problem:
-      "Schools manage thousands of academic records by hand. I engineered a desktop system to automate records, attendance, and administrative workflows.",
-    build:
-      "A full-stack Java desktop application backed by a normalized relational SQLite database with automated SQL CRUD operations, designed for data integrity and scalability as record volume grows.",
-    impact: [
-      "Manages 1,000+ academic records with attendance tracking.",
-      "~40% gain in administrative processing efficiency via workflow automation.",
-      "Normalized schema enforces integrity and reduces redundancy.",
-    ],
-    stack: ["Java", "SQL", "SQLite", "Systems Design"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikemaeda/school-management-system",
-        primary: true,
-      },
-    ],
-  },
-  {
-    slug: "sales-data-analysis-pipeline",
-    title: "Sales Data Analysis Pipeline",
-    tagline: "Retail sales analysis workflow",
-    summary:
-      "A sales data analysis pipeline using NYC coffee shop transaction data to move from raw data toward defensible business insight.",
-    period: "Nov - Dec 2025",
-    problem:
-      "Could real retail sales data justify a premium-pricing strategy? I set out to test the relationship between unit price and transaction value with statistical rigor.",
-    build:
-      "Cleaned and transformed a 17,000+ row retail dataset, then ran regression modeling and exploratory feature analysis across multiple variables to build a reproducible statistical workflow.",
-    impact: [
-      "Built a reproducible analysis flow from raw transaction data to business insight.",
-      "Used regression modeling and exploratory analysis to test pricing assumptions.",
-    ],
-    stack: ["Python", "SQL", "Statistics", "Data Analysis"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikemaeda/nyc-coffee-shop-sales-analysis/tree/main",
-        primary: true,
-      },
-    ],
   },
 ];
 
 export type SkillGroup = { label: string; items: string[] };
 
 export const skills: SkillGroup[] = [
-  {
-    label: "Languages",
-    items: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C", "C++", "C#", "Scala", "HTML / CSS"],
-  },
-  {
-    label: "Backend & Data",
-    items: ["Flask", "FastAPI", "REST APIs", "PostgreSQL", "MySQL", "SQLite", "MongoDB"],
-  },
-  {
-    label: "AI / Data",
-    items: ["PyTorch", "TensorFlow", "Scikit-learn", "NumPy", "HuggingFace Transformers"],
-  },
-  {
-    label: "Tools",
-    items: ["Git", "Docker", "Azure", "Linux"],
-  },
-  {
-    label: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-  },
+  { label: "Languages", items: ["Python", "Java", "JavaScript", "SQL", "C++", "C", "HTML / CSS"] },
+  { label: "Frameworks & libraries", items: ["Flask", "React", "REST APIs", "PyTorch", "TensorFlow", "Scikit-learn", "NumPy"] },
+  { label: "Databases & tools", items: ["PostgreSQL", "MySQL", "SQLite", "ChromaDB", "Git", "Linux"] },
 ];
 
-// Top-level routes for the poster-style landing page.
 export const nav = [
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
@@ -303,7 +154,6 @@ export const nav = [
   { label: "Contact", href: "/contact" },
 ];
 
-// Look up a single project by its URL slug. Used by the /projects/[slug] route.
 export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+  return projects.find((project) => project.slug === slug);
 }
