@@ -67,7 +67,7 @@ button { color: inherit; font: inherit; }
 .button:hover { transform: translateY(-3px); }
 .button-dark { color: var(--paper); background: var(--ink); }
 .button-paper { background: transparent; }
-.hero-proof { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 570px; margin-top: 42px; border-top: 1px solid var(--ink); }
+.hero-proof { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 570px; margin-top: 42px; border-top: 1px solid var(--ink); }
 .hero-proof div { padding: 17px 15px 0 0; border-right: 1px solid var(--line); }
 .hero-proof strong { display: block; font-family: Georgia, serif; font-size: 1.7rem; font-weight: 500; }
 .hero-proof span { display: block; margin-top: 4px; color: var(--ink-soft); font-family: ui-monospace, monospace; font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; }

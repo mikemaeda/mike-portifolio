@@ -14,7 +14,6 @@ export default function Hero() {
             <a href={profile.links.resume} target="_blank" rel="noreferrer" className="button button-paper">Read résumé <span>↓</span></a>
           </div>
           <div className="hero-proof" aria-label="Quick facts">
-            <div><strong>28K+</strong><span>Research images</span></div>
             <div><strong>3</strong><span>Current campus roles</span></div>
             <div><strong>3</strong><span>Selected projects</span></div>
           </div>
