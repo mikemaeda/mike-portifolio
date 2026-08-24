@@ -9,7 +9,6 @@ export default function Hero() {
         <div className="hero-copy">
           <p className="hero-index">MIKE MAEDA / SOFTWARE ENGINEER</p>
           <h1>{hero.headline}</h1>
-          <p className="hero-intro">{hero.intro}</p>
           <div className="hero-actions">
             <Link href="/projects" className="button button-dark">See selected work <span>↗</span></Link>
             <a href={profile.links.resume} target="_blank" rel="noreferrer" className="button button-paper">Read résumé <span>↓</span></a>

@@ -16,8 +16,6 @@ export const hero = {
   headline: "Software Engineer.",
   subtitle:
     "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
-  intro:
-    "I study Computer Science and Data Analytics at Alfred University. I build practical software for problems I understand—from offline school records to student support and electronic-waste research.",
 };
 
 export type Experience = {
