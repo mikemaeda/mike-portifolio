@@ -11,7 +11,7 @@ export default function Hero() {
           <h1>{hero.headline}</h1>
           <div className="hero-actions">
             <Link href="/projects" className="button button-dark">See selected work <span>↗</span></Link>
-            <a href={profile.links.resume} target="_blank" rel="noreferrer" className="button button-paper">Read résumé <span>↓</span></a>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="button button-paper">See LinkedIn <span>↗</span></a>
           </div>
         </div>
 

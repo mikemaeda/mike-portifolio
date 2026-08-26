@@ -8,7 +8,6 @@ export const profile = {
   links: {
     github: "https://github.com/mikemaeda",
     linkedin: "https://www.linkedin.com/in/mike-maeda",
-    resume: "/resume.pdf?v=20260819",
   },
 };
 
@@ -29,7 +28,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Undergraduate Research Assistant",
+    role: "Undergraduate Research Intern",
     org: "Alfred University, Inamori School of Engineering",
     context: "Python, TensorFlow",
     location: "Alfred, NY",
@@ -40,7 +39,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: "ITS Student HelpDesk Consultant",
+    role: "ITS IT Systems Technician",
     org: "Alfred University",
     context: "Microsoft Entra ID, Identity & Access",
     location: "Alfred, NY",
@@ -51,7 +50,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: "Teaching Assistant, Analytics 101",
+    role: "Teaching Assistant",
     org: "Alfred University",
     context: "Excel, Data Analysis",
     location: "Alfred, NY",

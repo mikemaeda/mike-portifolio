@@ -14,7 +14,6 @@ export default function Contact() {
           <div className="contact-links">
             <a href={profile.links.github} target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href={profile.links.resume} target="_blank" rel="noreferrer">Résumé ↗</a>
           </div>
         </div>
       </div>

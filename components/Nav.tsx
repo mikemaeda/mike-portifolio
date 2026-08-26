@@ -25,7 +25,7 @@ export default function Nav() {
               <span>0{index + 1}</span>{item.label}
             </Link>
           ))}
-          <a href={profile.links.resume} target="_blank" rel="noreferrer" className="nav-resume">Résumé ↗</a>
+          <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="nav-linkedin">LinkedIn ↗</a>
         </nav>
       </div>
     </header>
