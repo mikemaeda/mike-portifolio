@@ -39,7 +39,7 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: "ITS IT Systems Technician",
+    role: "IT Systems Technician",
     org: "Alfred University",
     context: "Microsoft Entra ID, Identity & Access",
     location: "Alfred, NY",
