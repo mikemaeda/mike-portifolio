@@ -11,7 +11,6 @@ export default function Hero() {
           <p className="hero-intro">{hero.subtitle}</p>
           <div className="hero-actions">
             <a href="#projects" className="button button-dark">View my work <span>↓</span></a>
-            <a href={`mailto:${profile.email}?subject=Resume request`} className="button button-paper" title="Request Mike's resume by email">Resume <span>↗</span></a>
             <a href={profile.links.github} target="_blank" rel="noreferrer" className="hero-text-link">GitHub ↗</a>
             <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hero-text-link">LinkedIn ↗</a>
           </div>
