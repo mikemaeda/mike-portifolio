@@ -14,7 +14,7 @@ export const profile = {
 export const hero = {
   headline: "Software Engineer.",
   subtitle:
-    "Undergraduate Computer Science & Data Analytics double major at Alfred University.",
+    "I'm a second-year student at Alfred University studying Computer Science and Data Analytics, with a focus on backend engineering and applied AI.",
 };
 
 export type Experience = {
@@ -89,7 +89,6 @@ export const projects: Project[] = [
       "I built a Java and Python system backed by SQLite, using object-oriented design, automated CRUD workflows, and a normalized relational schema to manage student and administrative records locally.",
     impact: [
       "Manages more than 1,000 records without requiring internet access.",
-      "Improved administrative query efficiency by 40% through a normalized SQL schema.",
     ],
     stack: ["Java", "Python", "SQL", "SQLite"],
     links: [{ label: "GitHub", href: "https://github.com/mikemaeda/school-management-system", primary: true }],
@@ -108,7 +107,6 @@ export const projects: Project[] = [
       "I built a Python RAG pipeline over a 10-document knowledge base, producing 47 embedded segments in ChromaDB and retrieving the top four sources for Groq's Llama 3.3 model. The system includes source attribution and strict refusal behavior.",
     impact: [
       "Evaluated at 80% response accuracy on a focused question set.",
-      "Added grounded citations and refusal behavior to reduce hallucinated answers.",
     ],
     stack: ["Python", "ChromaDB", "Groq LLM", "Gradio"],
     links: [{ label: "GitHub", href: "https://github.com/mikemaeda/alfred-rag-assistant", primary: true }],
@@ -126,8 +124,7 @@ export const projects: Project[] = [
     build:
       "I built a Flask backend and JavaScript frontend with Google OAuth, session-based authentication, budget tracking, email notifications, CSV export, and a normalized SQLite schema.",
     impact: [
-      "Delivered more than eight user-facing features across 20+ REST endpoints.",
-      "Deployed the application to Vercel with automated email notifications.",
+      "Built more than 20 REST endpoints across the application's backend.",
     ],
     stack: ["Python", "Flask", "JavaScript", "SQLite", "REST APIs", "OAuth"],
     links: [

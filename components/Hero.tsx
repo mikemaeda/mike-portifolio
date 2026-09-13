@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { hero, profile } from "../lib/data";
 
 export default function Hero() {
@@ -7,11 +6,14 @@ export default function Hero() {
     <section className="hero" id="top">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <p className="hero-index">MIKE MAEDA / SOFTWARE ENGINEER</p>
+          <p className="hero-index">MIKE MAEDA / CLASS OF 2029</p>
           <h1>{hero.headline}</h1>
+          <p className="hero-intro">{hero.subtitle}</p>
           <div className="hero-actions">
-            <Link href="/projects" className="button button-dark">See selected work <span>↗</span></Link>
-            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="button button-paper">See LinkedIn <span>↗</span></a>
+            <a href="#projects" className="button button-dark">View my work <span>↓</span></a>
+            <a href={`mailto:${profile.email}?subject=Resume request`} className="button button-paper" title="Request Mike's resume by email">Resume <span>↗</span></a>
+            <a href={profile.links.github} target="_blank" rel="noreferrer" className="hero-text-link">GitHub ↗</a>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hero-text-link">LinkedIn ↗</a>
           </div>
         </div>
 
@@ -29,9 +31,7 @@ export default function Hero() {
           <div className="orbit-note">BACKEND · DATA · APPLIED AI</div>
         </aside>
       </div>
-      <div className="ticker" aria-hidden="true">
-        <div>PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS · PYTHON · FASTAPI · APPLIED AI · DATA SYSTEMS ·</div>
-      </div>
+      <div className="hero-divider" aria-hidden="true"><span /></div>
     </section>
   );
 }
