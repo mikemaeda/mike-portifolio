@@ -14,7 +14,7 @@ export const profile = {
 export const hero = {
   headline: "Software Engineer.",
   subtitle:
-    "I'm a second-year student at Alfred University studying Computer Science and Data Analytics, with a focus on backend engineering and applied AI.",
+    "I'm an undergraduate student at Alfred University studying Computer Science and Data Analytics, with a focus on backend engineering and applied AI.",
 };
 
 export type Experience = {
