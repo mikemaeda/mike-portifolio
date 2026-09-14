@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [{ source: "/duo", destination: "/duo-friends.jpg" }];
+  },
 };
 
 export default nextConfig;
